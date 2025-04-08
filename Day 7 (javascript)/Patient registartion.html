@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient registartion</title>
+    <link rel="stylesheet" href="../test.css">
+</head>
+<body>
+    <form action=""  id="formid">
+        <p>Name : <input type="text" id="name"></p>
+        <p>Age : <input type="number" name="" id="age"></p>
+        <p>Email : <input type="email" name="" id="email"></p>
+        <p>Description : <textarea name="" id="description" rows="5" cols="40"></textarea></p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+         document.getElementById('formid').addEventListener('submit', function(event){
+           const inputs= document.getElementsByTagName('input');
+          const description= document.getElementsByTagName('textarea');
+          for(let t of description){
+          if(t.value==""){
+            alert('Please fill description field');
+        }
+    }
+
+           for(let x of inputs){
+            if(x.type!="submit" && x.value==""){
+                alert('Please fill '+x.type +' field' );
+            }
+           }
+
+          
+        });
+       
+ 
+        
+    </script>
+</body>
+</html>

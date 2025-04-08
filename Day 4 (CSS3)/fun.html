@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun</title>
+
+    <style>
+        #no{
+            transition: 1s;
+        }
+        #no:hover{
+            
+            transition: 1s;
+        }
+
+        form{
+       text-align: center;
+       /* display: flex; */
+       width: fit-content;
+      padding: 5%;
+       margin: auto;
+       border: 1px solid black;
+       box-shadow: 5px 5px lightgray;
+       transition: .8s;
+       border-radius: 20px;
+       font-family: cursive;
+   }
+   form:hover{
+       box-shadow: 10px 10px gray;
+       transition: .8s;
+       /* transform: scale(1.1); */
+   }
+#two,#three{
+    display: none;
+}
+
+button{
+            color: rgb(8, 8, 8);
+            border: 1px solid black;
+            border-radius: .1cm;
+            height: 30px;
+            margin:auto;
+            display:block;
+            
+            margin-top: 10%;
+
+        }
+        button:hover{
+            transform: scale(1.2);
+            color: rgb(247, 253, 251);
+            box-shadow: inset;
+            background-color: black;
+            transition: .5s;
+        }
+
+        input[type=button]{
+           color: rgb(8, 8, 8);
+           border: 1px solid black;
+           border-radius: .1cm;
+           height: 30px;
+           margin-left: -20%;
+           background-color: white;
+           text-align: center;
+           margin: auto;
+         
+           
+          
+
+       }
+       input[type=button]:hover{
+           transform: scale(1.2);
+           color: rgb(247, 253, 251);
+           box-shadow: inset;
+           background-color: black;
+           transition: .5s;
+       }
+    </style>
+</head>
+<body>
+    <form action="" id="one">
+        <h3>Are u an Idiot?</h3>
+        <input type="button" id="yes" onclick="yes1()" value="Yes">
+        <input type="button" id="no" onclick="no1()" value="No">
+
+    </form>
+
+    <form id="two">
+        <h2>You are damm Right! &#128512; </h2>
+
+    </form>
+
+    <form id="three">
+        <h2>Yes U Are... &#128512; </h2>
+
+    </form>
+   
+
+    <script>
+        no.addEventListener('mouseover', () => {
+    const x = Math.random() *700;
+    const y = Math.random() * 700;
+    no.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+
+    </script>
+    <script>
+        function yes1(){
+    document.getElementById('one').style.display='none';
+    document.getElementById('two').style.display='block';
+}
+
+function no1(){
+    document.getElementById('one').style.display='none';
+    document.getElementById('three').style.display='block';
+
+}
+
+    </script>
+</body>
+</html>

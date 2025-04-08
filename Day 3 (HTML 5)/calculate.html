@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate</title>
+
+    <style>
+           form{
+       text-align: center;
+       /* display: flex; */
+       width: fit-content;
+      padding: 5%;
+       margin: auto;
+       border: 1px solid black;
+       box-shadow: 5px 5px lightgray;
+       transition: .8s;
+       border-radius: 20px;
+       font-family: cursive;
+   }
+   form:hover{
+       box-shadow: 10px 10px gray;
+       transition: .8s;
+       /* transform: scale(1.1); */
+   }
+
+   input[type=submit] {
+       padding: 5px;
+       border: 1px solid black;
+       background-color: white;
+       border-radius: 5px;
+       transition: .3s;
+       font-size: larger;
+       
+   }
+
+   input[type=submit]:hover{
+       border: 1px solid white;
+       background-color: black;
+       color: white;
+       box-shadow: 2px 2px gray;
+       transition: .3s;
+   }
+   input:focus{
+   background-color: black;
+   color: white;
+}
+input[type=button]{
+           color: rgb(8, 8, 8);
+           border: 1px solid black;
+           border-radius: .1cm;
+           height: 30px;
+           margin-left: -20%;
+           background-color: white;
+           text-align: center;
+           margin: auto;
+         
+           
+          
+
+       }
+       input[type=button]:hover{
+           transform: scale(1.2);
+           color: rgb(247, 253, 251);
+           box-shadow: inset;
+           background-color: black;
+           transition: .5s;
+       }
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <h3>Product</h3>
+        <p>Quantity : <input type="number" id="quantity"></p>
+        <p> Price: <input type="number" id="price"></p>
+        <input type="button" value="Calculate" onclick="calculate()">
+        <p id="output"></p>
+    </form>
+    <script>
+        function calculate(){
+            var quantity=  document.getElementById('quantity').value;
+      var price=  document.getElementById('price').value;
+      var output=quantity*price;
+      document.getElementById('output').textContent=' Output = '+ output;
+        }
+    
+    </script>
+</body>
+</html>

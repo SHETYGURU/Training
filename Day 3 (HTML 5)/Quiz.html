@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <style>
+#two,#three{
+    display: none;
+}
+
+section{
+    text-align: center;
+    border: 1px solid green;
+    border-radius: 10%;
+    box-shadow: 4px 4px lightgreen;
+    transition: 1s;
+    width: fit-content;
+    margin: auto;
+    padding: 3%;
+    margin-top: 10%;
+    font-size: x-large;
+    font-family: cursive;
+    
+}
+section:hover{
+    box-shadow: 6px 6px green;
+    transition: 1s;
+   
+}
+input[type=button]{
+           color: rgb(8, 8, 8);
+           border: 1px solid black;
+           border-radius: .1cm;
+           height: 30px;
+           margin-left: -20%;
+           background-color: white;
+           text-align: center;
+           margin: auto;
+         box-shadow: 2px 2px lightgray;
+           
+          
+
+       }
+       input[type=button]:hover{
+           transform: scale(1.05);
+           color: rgb(247, 253, 251);
+           box-shadow: inset;
+           background-color: black;
+           transition: .5s;
+           box-shadow: 4px 4px gray;
+       }
+       select{
+
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 2%;
+       }
+
+       select>option{
+        background-color: black;
+        color: white;
+       }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="one">
+            <form action="">
+                <p>Q1. 1+1-1*1=?</p>
+                <select name="" id="s1" onchange="select1()">
+                    <option value="">Choose</option>
+                    <option value="1">a)2</option>
+                    <option value="2">b)1</option>
+                    <option value="3">c)0</option>
+                    <option value="4">d)none</option>
+                </select>
+                <input type="button" value="Next" id="b1" onclick="first();">
+            </form>
+        </section>
+
+        <section id="two">
+            <p>Q2. 1-1+1*1=?</p>
+                <select name="" id="s2" onchange="select2()">
+                    <option value="">Choose</option>
+                    <option value="1">a)2</option>
+                    <option value="2">b)1</option>
+                    <option value="3">c)0</option>
+                    <option value="4">d)none</option>
+
+                </select>
+                <input type="button" value="Next" id="b2" onclick="second();">
+        </section>
+
+        <section id="three"onload="result()">
+            <h3>Result</h3>
+            <p  id="t1"></p>
+            <p id="t2"></p>
+            <h6 id="feedback"></h6>
+
+            <h5>Thank You For Attempting</h5>
+        </section>
+    </main>
+
+    <script>
+        function select1(){
+            var ans= document.getElementById('s1').value;
+            sessionStorage.setItem('ans1',ans);
+            console.log(sessionStorage.getItem('ans1'));
+        }
+        function first(){
+            document.getElementById('one').style.display='none';
+            document.getElementById('two').style.display='block';
+
+        }
+
+        function select2(){
+            var ans= document.getElementById('s2').value;
+            sessionStorage.setItem('ans2',ans);
+            console.log(sessionStorage.getItem('ans2'));
+        }
+        function second(){
+            document.getElementById('two').style.display='none';
+            document.getElementById('three').style.display='block';
+            result();
+
+        }
+
+        function result(){
+            var ans1= sessionStorage.getItem('ans1');
+            var ans2 =sessionStorage.getItem('ans2');
+            if(ans1==1){
+                document.getElementById('t1').textContent='1.Correct';
+            }
+            else{
+                document.getElementById('t1').textContent='1.Incorrect [Correct: a) 2]';
+            }
+
+            if(ans2==3)
+            {
+                document.getElementById('t2').textContent='2.Correct';
+            }
+            else{
+                document.getElementById('t2').textContent='2.Incorrect [Correct : c) 0]';
+            }
+
+            if(ans1==1 &&ans2== 3)
+            {
+                document.getElementById('feedback').textContent='Bravo , U earned a Perfect Score';
+            }
+            else if(ans1==1||ans2==3)
+            {
+                document.getElementById('feedback').textContent='Keep it Up.Work Harder';
+            }
+            else{
+                document.getElementById('feedback').textContent='Its OK,Better Luck Next Time';
+            }
+        }
+
+    </script>
+</body>
+</html>

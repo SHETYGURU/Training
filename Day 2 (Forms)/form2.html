@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>2nd Form</title>
+    <style> body{
+        padding: 10%;
+    }
+    form{
+        text-align: center;
+        /* display: flex; */
+        width: fit-content;
+       padding: 5%;
+        margin: auto;
+        border: 1px solid black;
+        box-shadow: 5px 5px lightgray;
+        transition: .8s;
+        border-radius: 20px;
+        font-family: cursive;
+    }
+    form:hover{
+        box-shadow: 10px 10px gray;
+        transition: .8s;
+        /* transform: scale(1.1); */
+    }
+
+    input[type=submit] {
+        padding: 2px;
+        border: 1px solid black;
+        background-color: white;
+        border-radius: 5px;
+        transition: .3s;
+        font-size: larger;
+        
+    }
+
+    input[type=submit]:hover{
+        border: 1px solid white;
+        background-color: black;
+        color: white;
+        box-shadow: 2px 2px gray;
+        transition: .3s;
+    }
+    input:focus{
+    background-color: black;
+    color: white;
+ }
+    </style>
+</head>
+<body>
+    
+    <form>
+        <h3>Leave Application</h3>
+        <p>Emploee ID :  <input type="text" name="Emploee id"></p>
+        <p>Leave Type: 
+            <select name="leave_type">
+            <option value="sick">Sick Leave</option>
+            <option value="casual">Casual Leave</option>
+            <option value="annual"> Annual Leave</option>
+        </select>
+        </p>
+        <p>Start date : <input type="text" name="start_date" id=""></p>
+        <p> End Date: <input type="text" name="end_date" id=""></p>
+        <p> <input type="submit" value="Apply"></p>
+    </form>
+</body>
+</html>

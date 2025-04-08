@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="stylesheet" href="../test.css">
+</head>
+<body>
+    <form action="" onsubmit="avg()">
+        <h2>
+            Student marks
+        </h2>
+
+        <p>Subect 1 : <input type="number" id="sub1"></p>
+        <p>Subect 2 : <input type="number" id="sub2"></p>
+        <p>Subect 3 : <input type="number" id="sub3"></p>
+        <input type="submit" value="Get Average">
+    </form>
+
+    <script>
+        function avg(){
+            let avg= ((parseFloat(document.getElementById('sub1').value) + parseFloat(document.getElementById('sub2').value) + parseFloat(document.getElementById('sub3').value)))/3;
+            avg=avg.toFixed(2);
+            (avg<35) ? alert('Average : '+avg +' ,Sorry you have Failed, Better Luck next Time'): (avg>70)?alert('Average : '+
+            avg +' , Congrats, you have Passed with distinction'):alert( 'Average : '+ avg +    ' You have Passed');
+        }
+      
+    </script>
+</body>
+</html>

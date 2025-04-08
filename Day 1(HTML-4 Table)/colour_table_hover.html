@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+   
+    <title>Colour Table</title>
+    <style>
+         table,td,th{
+            border: 1px solid  black;
+            border-collapse: collapse;
+            justify-content: center;
+            align-items: center;
+        }
+        td,th{
+            font-size: x-large;
+            
+        }
+        
+       
+        .red:hover{
+            background-color: red;
+            transition: .3s;
+        }
+        .green:hover{
+            background-color: green;
+            transition: .3s;
+        }
+        .blue:hover
+        {
+            background-color: blue;
+            transition: .3s;
+        }
+    </style>
+</head>
+<body>
+    <table style="width:70%; height: 100%;">
+        <tr>
+            <td class="red"  >red</td>
+            <td rowspan="2" class="green">green</td>
+        </tr>
+       <tr>
+        <td  class="blue">blue</td>
+       </tr>
+    </table>
+</body>
+</html>

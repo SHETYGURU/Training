@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+         body{
+        padding: 10%;
+    }
+    form{
+        text-align: center;
+        /* display: flex; */
+        width: fit-content;
+       padding: 5%;
+        margin: auto;
+        border: 1px solid black;
+        box-shadow: 5px 5px lightgray;
+        transition: .8s;
+        border-radius: 20px;
+        font-family: cursive;
+    }
+    form:hover{
+        box-shadow: 10px 10px gray;
+        transition: .8s;
+        /* transform: scale(1.1); */
+    }
+
+    input[type=submit] {
+        padding: 5px;
+        border: 1px solid black;
+        background-color: white;
+        border-radius: 5px;
+        transition: .3s;
+        font-size: larger;
+        
+    }
+
+    input[type=submit]:hover{
+        border: 1px solid white;
+        background-color: black;
+        color: white;
+        box-shadow: 2px 2px gray;
+        transition: .3s;
+    }
+    input:focus{
+    background-color: black;
+    color: white;
+ }
+    </style>
+</head>
+<body>
+    <form method="get" action="form.html">
+        <p>Name : <input type="text" name="name"></p>
+        <p>Department <input type="text" name="Department" required></p>
+        <p>Feedback : <br><textarea name="Feedback" rows="5" cols="40"></textarea></p>
+        <p><input type="submit" value="Submit Feedback"></p>
+    </form>
+</body>
+</html>

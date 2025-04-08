@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Boxes</title>
+    <style>
+        table{
+            border: 1px solid black;
+            width: 400px;
+            height: 400px; 
+            margin: auto;
+                
+         }
+         .red,.blue,.green{
+            transition: 1s ;
+         }
+         td {
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+        }       
+        .red:hover{
+            background-color: red;
+            /* transition: 1s; */
+            transform: scale(1.2);
+            transition: 1s ;
+
+        }  
+        .blue:hover{
+            background-color: blue;
+            /* transition: 1s; */
+            z-index: 1000;
+            transform: scale(1.05);
+            transition: 1s;
+        }   
+        .green:hover{
+            background-color: green;
+            /* transition: 1s; */
+            z-index: 100;
+            transform: scale(1.05);
+            transition: 1s ;
+
+        }
+    </style>
+</head>
+<body>
+    <table  style=" margin-top: 10%;">
+        <td class="red">
+        
+            <table >
+                <td class="green" >
+                <table >
+                    <td class="blue" >
+            </table>
+        </table>
+    </table>
+
+</body>
+</html>

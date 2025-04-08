@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Details</title>
+    <link rel="stylesheet" href="../test.css">
+    <style>
+        #two,#three{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="one">
+        <button onclick="field()"> Pay</button>
+    </div>
+
+
+    <form action="" id="two">
+        <h2>Enter Card Details</h2>
+    <p> Card No:       <input type="text" id="cardno"> </p> 
+    <input type="button" value="Submit" onclick="details()">  
+ </form>
+
+
+ <form action="" id="three">
+    <p id="crdno"></p>
+    <input type="button" value="Show Details" id="show" onclick="show1()">
+    <input type="button"  value="Return" onclick="return1()">
+ </form>
+ 
+ <script>
+    function field(){
+        document.getElementById('one').style.display='none',
+        document.getElementById('two').style.display='block';
+
+    }
+
+    function details(){
+        var cardno=document.getElementById('cardno').value;
+        if(!/^\d{1,16}$/.test(cardno)){
+           alert(' card number length should be 16');
+           if(isNaN(cardno)){
+            alert(' card number should be only number');
+            
+           }
+        }
+        else{
+            document.getElementById('two').style.display='none',
+        document.getElementById('three').style.display='block';
+        card();
+        }
+
+       
+    }
+
+    function card(){
+        let hide=(document.getElementById('cardno').value).slice(12,16);
+        document.getElementById('crdno').textContent='Card No: **** **** **** '+ hide;
+    }
+
+    function show1(){
+        document.getElementById('crdno').textContent=document.getElementById('cardno').value;
+    }
+    function return1(){
+        document.getElementById('one').style.display='block',
+        document.getElementById('three').style.display='none';
+    }
+ </script>
+</body>
+</html>
