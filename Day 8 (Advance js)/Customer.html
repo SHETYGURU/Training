@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer</title>
+    <link rel="stylesheet" href="../test.css">
+    <style>
+        #two{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Customer</h2>
+    <form action="" id="one">
+        <p>Name: <input type="text" id="name"></p>
+        <!-- <p>Age : <input type="number" name="" id="age"></p> -->
+        <p>DOB : <input type="date" name="" id="dob"></p>
+        <p>Mobile : <input type="number" name="mobile" id="mobile"></p>
+        <p><input type="checkbox"  value="local" id="local">Local customer</p>
+        <input type="button" name="" id="" value="Display" onclick="display()">
+    </form>
+    <form action="" id="two">
+        <p id="dname"></p>
+        <p id="dage"></p>
+        <p id="ddob"></p>
+        <p id="dmobile"></p>
+        <p id="dlocal"></p>
+    </form>
+
+
+    <script>
+        class customer{
+            constructor(name,age,dob,mobile,local)
+            {
+                this.name=name;
+                this.age=age;
+                this.dob=dob;
+                this.mobile=mobile;
+                this.local=local;
+            }
+        }
+        function display(){
+          var name= document.getElementById('name').value;
+            // var age = document.getElementById('age').value;
+            var dob = document.getElementById('dob').value;
+
+            var today=new Date();
+            var cdob=new Date(dob);
+            var byear=today.getFullYear-cdob.getFullYear;
+            var bmonh= today.getMonth-cdob.getMonth;
+            if((bmonh==0&& today.getDate()<cdob.getDate())||bmonh<0){
+                byear--;
+            }
+            
+            var age = byear;
+            var mobile = document.getElementById('mobile').value;
+            var local = document.getElementById('local');
+            if(
+                local.checked==true
+            )
+            {
+                var local= 'Yes';
+            }
+            else{
+                     var local= 'No';
+            }
+
+
+            const details= new customer(name,age,dob,mobile,local);
+            document.getElementById('dname').textContent = 'Customer Name :' + details.name;
+            document.getElementById('dage').textContent = 'Customer Age :' + details.age;
+            document.getElementById('ddob').textContent = 'Customer DOB :' + details.dob;
+            document.getElementById('dmobile').textContent = 'Customer Mobile :' + details.mobile;
+            document.getElementById('dlocal').textContent = 'Customer IsLocal :' + details.local;
+
+            document.getElementById('one').style.display='none',
+            document.getElementById('two').style.display='block';
+        }
+    </script>
+</body>
+</html>

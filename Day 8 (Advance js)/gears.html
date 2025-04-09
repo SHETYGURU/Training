@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gears</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        class Bike{
+
+        
+        constructor(gears){
+            this.gears=gears;
+        }
+    }
+
+
+    class Honda extends Bike{
+        constructor(brand,gears){
+            super(gears);
+            this.brand=brand;
+        }
+        
+    }
+
+    class Shine extends Honda{
+        constructor(model,brand,gears){
+            super(brand,gears);
+            this.model=model;
+        }
+    }
+
+    const newBike =new Shine("Shine" , "Honda" ,5);
+    document.getElementById("output").innerHTML=`the ${newBike.modal} model of the ${newBike.brand} brand has total ${newBike.gears} gears`;
+    </script>
+</body>
+</html>

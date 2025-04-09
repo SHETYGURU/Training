@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function addPrice(amount){
+            this.price=amount;
+        }
+
+        function book(title,authour){
+            this.title=title;
+            this.authour=authour;
+            this.addPrice =addPrice;
+        }
+
+        var mybook = new book("perl" ,"Gururaj");
+        mybook.addPrice(100);
+        document.writeln("Book Tittle :" + mybook.title);
+        document.writeln("Book price :" + mybook.price);
+        var addpr =new addPrice(100);
+        // document.writeln("Book AddedPrice :"+mybook.addPrice);
+        document.writeln("Book AddedPrice :"+addpr.price);
+
+
+    </script>
+</body>
+</html>

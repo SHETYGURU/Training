@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link rel="stylesheet" href="../test.css">
+    <style>
+        div{
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h2>Account Details</h2>
+    <form action="">
+        <div>
+            <input type="button" value="LOAN" name="" id="" onclick="loan()">
+            <input type="button" value="Deposit" name="" id=""  onclick="deposit()">
+            <input type="button" value="WithDraw" name="" id=""  onclick="withdraw()">
+        </div>
+       
+        <p >Opening Balance : 1000</p>
+        <p>Amount : <input type="number" name="" id="amount"></p>
+        <p id="ermsg" style="color: red;"></p>
+        <p id="balance">Balance : 1000</p>
+    </form>
+    <script>
+       
+       
+       var balance=1000;
+        
+        
+         function getamt(){
+        var amount =parseFloat( document.getElementById('amount').value);
+        var ermsg =document.getElementById('ermsg');
+             if(isNaN(amount)){
+                ermsg.textContent='field cant be empty ';
+                return 0;
+            }
+            else{
+                
+                 return amount;
+             }
+        }
+       
+    
+            function loan()
+            {ermsg.textContent='';
+                var amount= getamt();
+                balance +=amount;
+                updateblnc();
+            }
+
+
+
+
+            function deposit()
+            {ermsg.textContent='';
+                var amount= getamt();
+                balance +=amount;
+                updateblnc();
+            }
+
+
+
+            function withdraw()
+            {       
+                ermsg.textContent='';
+                var amount= getamt();
+                if(amount>balance){
+                    ermsg.textContent='Insufficient balance';
+
+                }
+                else{
+                    
+                    balance-=amount;
+                    updateblnc();
+                }
+               
+            }
+        
+
+       function updateblnc(){
+        document.getElementById('balance').textContent= "Balance :"+balance;
+       }
+    </script>
+</body>
+</html>

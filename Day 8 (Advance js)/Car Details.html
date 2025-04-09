@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="../test.css">
+    <style>
+        #two{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="" id="one">
+        <h2>Enter car Details </h2>
+        <p >Enter brand Name: <input type="text" name="" id="brand"></p>
+        <p>Enter Model : <input type="text" name="" id="model"></p>
+        <p>Enter Price : <input type="number" name="" id="price"></p>
+        <p>Enter year : <input type="number" id="year"></p>
+        <input type="button" value="Add Details" onclick="cardetails()">
+    </form>
+
+    <form id="two">
+        <h2>Car Details:</h2>
+        <p id="dbrand"></p>
+        <p id="dmodel"></p>
+        <p id="dprice"></p>
+        <p id="dyear"></p>
+    </form>
+
+    <script>
+        class Car{
+
+
+            constructor(brand,model,price,year) {
+             this.brand=brand;
+             this.model=model;
+             this.price= price;
+             this.year=year;         
+
+           }
+        }
+           function cardetails(){
+                var brand= document.getElementById('brand').value;
+                var model= document.getElementById('model').value;
+                var price= document.getElementById('price').value;
+                var year= document.getElementById('year').value;
+
+                const car =new Car(brand,model,price,year);
+                document.getElementById('dbrand').textContent = 'brand Name :' + car.brand;
+             document.getElementById('dmodel').textContent = 'Modal Name :' +car.model;
+             document.getElementById('dprice').textContent = 'Market Price :' +car.price;
+             document.getElementById('dyear').textContent = 'Year :' +car.year;
+
+                document.getElementById('one').style.display='none',
+                 document.getElementById('two').style.display='block';
+       
+            }
+
+    </script>
+</body>
+</html>

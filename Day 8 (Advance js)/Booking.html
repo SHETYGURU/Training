@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+<link rel="stylesheet" href="../test.css">
+
+<style>
+    #two{
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <form action="" id="one"> 
+        <h2>Booking Form</h2>
+        <p>Vendor : <input type="text" id="vendor"></p>
+        <p>Speed : <input type="number" id="speed"></p>
+        <p>Path : <input type="text" name="" id="path"></p>
+        <p>Type : <select name="" id="type" onchange="display()">
+            <option value="blank"></option>
+            <option value="flight">Flight</option>
+            <option value="truck">Truck</option>
+            <option value="train">Train</option>
+        </select></p>
+            <p id="diffrenciator">.___.</p>
+            <input type="button" name="" id="" value="Display"  onclick="details()">
+        
+    </form>
+
+                <form id="two">
+            <h2> <u>Details</u></h2>
+            <p id="dvendor"></p>
+            <p id="dspeed"></p>
+            <p id="dpath"></p>
+            <p id="ddiff"></p>
+                </form>
+
+    <script>
+        var weight,capacity,coaches,type;
+        class Transport{
+            constructor(vendor,speed,path){
+                this.vendor=vendor;
+                this.speed=speed;
+                this.path=path;
+            }
+        }
+
+        class Flight extends Transport{
+            constructor(vendor,speed,path,weight){
+                super(vendor,speed,path);
+                this.weight=weight;
+
+            }
+        }
+
+        class Truck extends Transport{
+            constructor(vendor,speed,path,capacity){
+                super(vendor,speed,path);
+                this.capacity=capacity;
+
+            }
+        }
+        class Train extends Transport{
+            constructor(vendor,speed,path,coaches){
+                super(vendor,speed,path);
+                this.coaches=coaches;
+
+            }
+        }
+
+        function display(){
+             type= document.getElementById('type').value;
+            var diffrenciator= document.getElementById('diffrenciator');
+            if(type=='flight'){
+                     diffrenciator.innerHTML ='Weight : : <input type="number" id="fldiff">';
+                     weight=document.getElementById("fldiff").value;
+                    alert(flight.weight);
+                    weight=100;
+            }
+            else if(type=='truck'){
+                diffrenciator.innerHTML ='Capacity : : <input type="number" id="tkdiff">';
+                capacity=document.getElementById('tkdiff').value;
+                //alert(capacity);
+            }
+            else{
+                diffrenciator.innerHTML ='Coaches : : <input type="number" id="trdiff">';
+                coaches=document.getElementById('trdiff').value;
+
+
+            }
+        }
+
+            function details(){
+                // document.getElementById('one').style.display='none',
+                document.getElementById('two').style.display='block';
+
+                if(type=='flight'){
+                    
+                    var vendor=document.getElementById('vendor').value;
+                    var speed =document.getElementById('speed').value;
+                    var path =document.getElementById('path').value;
+                    const flight= new Flight(vendor,speed,path,weight)
+                    document.getElementById('dvendor').textContent='Vendor : '+flight.vendor;
+                    document.getElementById('dspeed').textContent='Speed : '+flight.speed;
+                    document.getElementById('dpath').textContent='Path : '+flight.path;
+                    document.getElementById('ddiff').textContent='Weight : '+flight.weight;
+
+                }
+
+                else if(type=='train'){
+                
+                    
+                    var vendor=document.getElementById('vendor').value;
+                    var speed =document.getElementById('speed').value;
+                    var path =document.getElementById('path').value;
+                    const train= new Train(vendor,speed,path,coaches)
+                    document.getElementById('dvendor').textContent='Vendor : '+train.vendor;
+                    document.getElementById('dspeed').textContent='Speed : '+train.speed;
+                    document.getElementById('dpath').textContent='Path : '+train.path;
+                    document.getElementById('ddiff').textContent='Coaches: '+train.coaches;
+
+                }
+
+
+                else {
+                
+                
+                var vendor=document.getElementById('vendor').value;
+                var speed =document.getElementById('speed').value;
+                var path =document.getElementById('path').value;
+                const truck= new Truck(vendor,speed,path,capacity)
+                document.getElementById('dvendor').textContent='Vendor : '+truck.vendor;
+                document.getElementById('dspeed').textContent='Speed : '+truck.speed;
+                document.getElementById('dpath').textContent='Path : '+truck.path;
+                document.getElementById('ddiff').textContent='Capacity : '+truck.capacity;
+
+            }
+
+                
+        }
+
+    </script>
+</body>
+</html>
