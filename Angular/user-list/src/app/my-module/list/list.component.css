@@ -1,0 +1,23 @@
+body{
+    font-family: cursive;
+    margin: 2%;
+    padding: 2%;
+    
+}
+a{
+    padding: 4px;
+    color: black;
+    border: 1px solid black;
+    margin: 3%;
+    text-decoration: none;
+    transition: .5s;
+    
+}
+a:hover{
+    box-shadow: 4px 4px gray;
+    font-size: large;
+    transition: .5s;
+    background-color: lightcoral;
+    position:static;
+}
+
