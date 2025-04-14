@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    border: 2px solid #333;
+    padding: 30px;
+    border-radius: 10px;
+    transform: rotate(45deg); /* Initial rhombus shape */
+}
+
+.component {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform: rotate(-45deg); /* Counter-rotate to make text horizontal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Rhombus Alignment */
+.container > div:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    justify-self: center;
+}
+
+.container > div:nth-child(2) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    justify-self: end;
+}
+
+.container > div:nth-child(3) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    justify-self: start;
+}
+
+.container > div:nth-child(4) {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    justify-self: center;
+}
+
+/* Hover Effects */
+.component:hover {
+    transform: rotate(-45deg) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.component {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Specific Hover Styles */
+.component:nth-child(1):hover { background-color: #e0f7fa; color: #00acc1; } /* Customer */
+.component:nth-child(2):hover { background-color: #fce4ec; color: #e91e63; } /* About */
+.component:nth-child(3):hover { background-color: #e8f5e9; color: #4caf50; } /* Product */
+.component:nth-child(4):hover { background-color: #fff3e0; color: #ff9800; } /* Order */
+
+.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
