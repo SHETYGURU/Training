@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstraction and Encapsulation</title>
+</head>
+<body>
+    <h1>Education Sector Case Study</h1>
+    <div id="students"></div>
+
+    <script>
+        class Student{
+            #grades;
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+                this.#grades =[];
+            }
+
+            addGrade(grade){
+                if(typeof grade!=='number' )throw new Error ('Grade mustbe a number');
+                this.#grades.push(grade);
+            }
+
+            getAveraGrade(){
+                const total = this.#grades.reduce((acc,val) => acc + val,0);
+                return(total/this.#grades.length).toFixed(2);
+
+            }
+
+            getInfo(){
+                return `Name : ${this.name},<br> Age :${this.age} ,<br> AveageGrade  :${this.getAveraGrade()}, <br> <br>`;
+            }
+        }
+
+
+        // Inheritence
+
+        class GraduateStudent extends Student{
+            constructor(name,age,thesisTopic){
+                super(name,age);
+                this.thesisTopic=thesisTopic;
+            }
+
+            getInfo(){
+                return `${super.getInfo()} Thesis : ${this.thesisTopic} <br><br>`;
+            }
+        }
+
+        // Polymorphism through function overloading
+        const students=[ new Student('Pushpa',22),new GraduateStudent('Gururaj',22,'Phd in AI')];
+        // Add sample grades with error handling
+        students.forEach(student =>{
+           try{
+            student.addGrade(90);
+            student.addGrade(80);
+           } 
+        
+            catch(err){
+                alert(err.message);
+            }
+        })
+
+
+        // Closure example
+        function createCounter(){
+            let count=0;
+            return function(){
+                count++;
+                return count;
+            };
+        }
+
+        const studentIdCounter =createCounter();
+
+
+        // DOM Manipulation
+        const container= document.getElementById('students');
+
+        students.forEach(student =>{
+            const card =document.createElement('div');
+            card.className ='student-card';
+            const id = studentIdCounter();
+            card.innerHTML=`<strong><br><br>Student Id : ${id}</strong><br>${student.getInfo()}`;
+
+            const btn =document.createElement('button');
+            btn.textContent='Show Greeting';
+
+            // Event Handling
+            btn.addEventListener('click',() =>{
+                alert(`Hello,${student.name} ! Keep up the good Work`);
+            });
+            card.appendChild(btn);
+            container.appendChild(card);
+        });
+
+
+        // Object Example
+        const school ={
+            name : 'Raj AI Tech Hub',
+            location : 'Online',
+            students : students,
+            getStudentCount(){
+                return this.students.length;
+            }
+
+        };
+       
+        alert(`Schhol : ${school.name},Total Students : ${school.getStudentCount()}`);
+    </script>
+</body>
+</html>

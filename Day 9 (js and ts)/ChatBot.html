@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../test.css"> -->
+
+    <style>
+        .container{
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: .2cm;
+            width: 30%;
+            height: 100%;
+            padding: 3%;
+            box-shadow: 5px 10px gray;
+            font-family: cursive;
+        }
+
+#yn{
+    display: flex;
+    justify-content: center;
+    /* padding: 3% auto; */
+}
+button{
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 3px;
+    transition: 1s;
+    margin: 3%;
+}
+
+button:hover{
+    background-color: rgb(73, 73, 73);
+    color: white;
+    transition: 1s;
+    transform: scale(1.2);
+   
+}
+img{
+    width: 14%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+}
+#img{
+    display: flex;
+    height: 5%;
+    width: 5%;
+}
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    grid-auto-flow: dense;
+    gap: 6px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+img.four-grid-cells {
+    grid-row: span 2 / auto;
+    grid-column: span 2 / auto;
+}
+
+img.wide-image {
+    grid-column: span 2 / auto;
+}
+
+
+
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#fff;	
+    
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#080808;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #e74c3c;	
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+    <h2><img src="https://png.pngtree.com/png-clipart/20230815/original/pngtree-chat-bot-icon-program-bot-illustration-vector-picture-image_10800531.png" alt="#"> Mpahsis ChatBot</h2>
+    <p>Hi There ! Please Enligfhten me with your name</p>
+    <p  class="input-container"><input  type="text" name="" id="name" ></p>
+    <button  name="" id="Done" onclick="first()" > Done </button>
+
+
+    
+
+    <div id="two">
+
+        <p id="dname"></p>
+        <div id="yn">
+            <button id="yes" onclick="dyes()" style="display: none;">Yes</button>
+            <button id="no" onclick="dno()" style="display: none;">No</button>
+        </div>
+      
+    </div>
+
+
+    <div id="rsltyes" style="display: none;">
+<p style="text-align: justify;">At Mphasis, engineering is in our DNA. 
+    We lead with design and architecture to deliver a portfolio of next-generation offerings and services that blend our deep domain expertise with cutting-edge technology.
+     Our domain contextualized offerings are embedded in deep tech and we are powered forward by the Mphasis Tribes and Squads model. 
+    Our cross-functional teams are focused on evolving our next-generation offerings. 
+    The Mphasis Way of engagement helps us build and scale faster. 
+    This enables us to bring the 'T' back into IT, with T standing not just for technology, but also for transformation combined with a strong understanding of your business domain.
+     Guided by the Mphasis Front2BackTM approach, we create hyper-personalized experiences and drive customer-centric transformation.
+
+</p>
+<p style="font-style: bold;"><br>
+ To know more about the company please visit <a href="https://www.mphasis.com/home.html">Mphassis Home page</a></p>
+
+
+ <div id="delayeddisplay" style="display: none;">
+
+    <p>Do you want to cotinue ..?</p>
+    <button onclick="img()"> Sure,Proceed</button>
+    <button onclick="ext()">No, Thank You</button>
+ </div>
+
+    </div>
+
+
+    <div style="display: none;" id="rsltno">
+<p>would be you like a glance of the company....?</p>
+<div id="glance" style="display: none;">
+<button onclick="img()">Yes</button>
+<button onclick="ext()">No Thank You</button>
+</div>
+    </div>
+
+
+
+
+<div id="image" style="display: none;">
+    <div class="gallery">
+
+        <img class="four-grid-cells"
+            src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg"
+            alt="Northern Winter Sky Image" />
+
+        <img
+            src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+            alt="Shining Stars Image" />
+
+        <img class="wide-image"
+            src="https://images.pexels.com/photos/3933881/pexels-photo-3933881.jpeg"
+            alt="A River Flowing Image" />
+
+        <img
+            src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg"
+            alt="A cloudy Mountain Image" />
+
+        <img
+            src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg"
+            alt="A Winter Rainbow Image" />
+
+        <img class="wide-image"
+            src="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg"
+            alt="A Clean Mountain Lake" />
+
+        <img
+            src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+            alt="Shining Stars Image" />
+
+    </div>
+</div>
+
+
+</div>
+<div id="exit" style="display: none;">
+    <p>Thank You! it was nice Talking to you....</p>
+    <button onclick="clear1()">Welcome</button>
+    </div>
+
+
+    <script>
+        function first(){
+            var name=document.getElementById('name').value;
+            document.getElementById('dname').textContent='Hello ' + name +', Hope you are doing well .. Do you know about the company ?';
+            document.getElementById('yes').style.display='block';
+            document.getElementById('no').style.display='block';
+            
+
+
+        }
+
+        function dyes(){
+            document.getElementById('rsltyes').style.display='block';
+            document.getElementById('rsltno').style.display='none';
+            document.getElementById('image').style.display='none';
+            document.getElementById('exit').style.display='none';
+            setTimeout(() => {
+     document.getElementById('delayeddisplay').style.display='block';
+        
+}, 4000);
+
+        }
+
+        function dno(){
+            document.getElementById('rsltno').style.display='block';
+            document.getElementById('rsltyes').style.display='none';
+            document.getElementById('image').style.display='none';
+            document.getElementById('exit').style.display='none';
+
+
+
+            setTimeout(() => {
+     document.getElementById('glance').style.display='block';
+        
+}, 2000);
+
+        }
+
+        function ext(){
+            document.getElementById('exit').style.display='block';
+            document.getElementById('image').style.display='none';
+
+
+        }
+        function img(){
+
+
+            document.getElementById('image').style.display='block';
+            setTimeout(() => {
+            document.getElementById('exit').style.display='block';
+        }, 4000);
+
+        }
+
+        function clear1(){
+            location.reload();
+        }
+    </script>
+</body>
+</html>
