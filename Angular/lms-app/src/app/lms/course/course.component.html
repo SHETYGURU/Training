@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher</title>
+</head>
+<body>
+
+
+    <div class="details">
+        <ul>
+            <li *ngFor="let course of courses">{{course.name}} - {{course.copy}}</li>
+        </ul>
+    </div>
+    <div class="login-box">
+        <h2>Courses</h2>
+        
+       
+        <form [formGroup]="copyForm" (ngSubmit)='onSubmit()'>
+        <div class="user-box">
+        <input type="text" formControlName="name">
+        <label>Course Name</label>
+        </div>
+        <div class="user-box">
+        <input type="number" formControlName="copy">
+        <label>No of Copies</label>
+        </div>
+        <a >
+            <button type="submit" [disabled]="!copyForm.valid">Add Course</button>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        </a>
+        </form>
+        </div>
+
+        <!-- <input type="submit" value="Submit"> -->
+</body>
+</html>
+
