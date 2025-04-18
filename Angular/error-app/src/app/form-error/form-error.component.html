@@ -1,0 +1,11 @@
+<form #form="ngForm">
+    <input  name="username" ngModel required minlength="3">
+    <div *ngIf="form.submitted && form.controls['username']?.errors">
+    <p *ngIf="form.controls['username'].errors?.['required']">Username is required</p>
+    <p *ngIf="form.controls['username'].errors?.['minlength']">Minimum length is 3</p>
+
+</div>
+<button (click)="form.onSubmit">Submit</button>
+<button (click)='getData()'>Data</button>
+<p>{{errormsg}}</p>
+</form>
